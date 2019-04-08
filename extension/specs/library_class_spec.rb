@@ -22,5 +22,11 @@ require('minitest/rg')
 require_relative('../library_class')
 
 class TestLibrary < MiniTest::Test
-  
+
+  def test_getting_all_book_info
+    library = Library.new()
+    book_to_search = library.book_info("why_cats_paint")
+    assert_equal({title: "why_cats_paint", rental_details: {student_name: "Felix", date: "12/04/08"}}, book_to_search)
+  end
+
 end
