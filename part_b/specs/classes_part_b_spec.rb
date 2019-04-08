@@ -14,6 +14,38 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../classes_part_b')
 
-class Team < MiniTest::Test
+class TestTeam < MiniTest::Test
+
+  def test_for_team_name
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    assert_equal('The Losers', football_team.name)
+  end
+
+  def test_for_team_players
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    assert_equal(['Bill', 'Will', 'Phil'], football_team.players)
+  end
+
+  def test_for_team_coach
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    assert_equal('Mr. Eagle', football_team.coach)
+  end
+
+  def test_to_name_coach
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    coach_name = football_team.coach='Mr. Blobby'
+    assert_equal('Mr. Blobby', coach_name)
+  end
+
+  def test_to_add_player
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    football_team.add_player('Crill')
+    assert_equal(['Bill', 'Will', 'Phil', 'Crill'], football_team.players)
+  end
+
+  def test_to_search_for_player__found
+    football_team = Team.new('The Losers', ['Bill', 'Will', 'Phil'], 'Mr. Eagle')
+    assert_equal(true, football_team.player_in_team?('Bill'))
+  end
 
 end
