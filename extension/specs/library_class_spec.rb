@@ -42,4 +42,11 @@ class TestLibrary < MiniTest::Test
     assert_equal({title: "the_life_of_dophins",rental_details: {student_name: "", date: ""}}, book_to_search)
   end
 
+  def test_change_rental_details
+    library = Library.new()
+    library.update_rental_info("why_cats_paint", "James", "08/04/19")
+    book_to_search = library.book_info("why_cats_paint")
+    assert_equal({title: "why_cats_paint",rental_details: {student_name: "James", date: "08/04/19"}}, book_to_search)
+  end
+
 end
