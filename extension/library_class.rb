@@ -17,6 +17,13 @@ class Library
           student_name: "Felix",
           date: "12/04/08"
         }
+      },
+      {
+        title: "lawnmower_racing_annual",
+        rental_details: {
+          student_name: "Beavis",
+          date: "01/06/94"
+        }
       }
     ]
   end
@@ -32,5 +39,15 @@ class Library
       return book[:rental_details] if book[:title] == title
     end
   end
-  
+
+  def add_book(title)
+    @books << {
+      title: title,
+      rental_details: {
+        student_name: "",
+        date: ""
+      }
+    }
+  end
+
 end
